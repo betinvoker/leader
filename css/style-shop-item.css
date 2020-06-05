@@ -2,18 +2,9 @@ p {
   font-family: Comic Sans;
 }
 
-.price {
-  color: #ffc542;
-  -webkit-text-stroke: 1px #844a4a;
-  font-size: 20pt;
-  font-stretch: expanded;  
-  font-family: Snell Roundhand, cursive;
-  font-weight: 800;
-}
-
-.shop-item-img {
-  width: 600px; 
-  height: 580px;
+.problem-item-img {
+  width: 300px; 
+  height: 790px;
 }
 
 .info-item-text {
@@ -21,7 +12,7 @@ p {
 }
 
 @media (max-width: 767px) {
-  .shop-item-img {
+  .problem-item-img {
     width: 600px; 
     height: 330px;
   }
