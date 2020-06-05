@@ -1,0 +1,72 @@
+a {
+  color: #008000; /* Цвет обычной ссылки */ 
+  text-decoration: none; /* Убираем подчеркивание у ссылок */
+}
+a:visited {
+  color: #000000; /* Цвет посещённой ссылки */
+} 
+a:hover {
+  color: #800000; /* Цвет ссылки при наведении на нее курсора мыши */  
+  text-decoration: underline; /* Добавляем подчеркивание */
+}
+
+.poster-fix-size { 
+  height: 370px; 
+  background-repeat: no-rpeat;
+  background-position: center;
+  -webkit-background-size: cover; 
+  background-size: cover; 
+  margin: 0 auto;
+}
+
+.card-fix-size {
+  width: 380px; 
+  height: 330px;
+  background-position: center;
+  background-size: cover; 
+  margin: 0 auto;
+}
+
+.card-img-fix-size {
+  width: 250px; 
+  height: 200px; 
+  background-repeat: no-rpeat;
+  background-position: center;
+  -webkit-background-size: cover; 
+  background-size: cover; 
+  margin: 0 auto;
+}
+
+.img-lider-opinion {
+  flex-shrink: 0;
+  width: 230px;
+  height: 250px;
+}
+
+.item-img {
+  height: 250px; 
+  background-repeat: no-rpeat;
+  background-position: center;
+  -webkit-background-size: cover; 
+  background-size: cover; 
+  margin: 0 auto;
+}
+
+.border-block {
+  margin: 70px 0 70px 0;
+}
+
+.border-button {
+  margin-top: 40px;
+}
+
+@media (max-width: 767px) {
+  .poster-fix-size { 
+    height: 230px; 
+    background-repeat: no-rpeat;
+    background-position: center;
+    -webkit-background-size: cover; 
+    background-size: cover; 
+    margin: 0 auto;
+  }
+}
