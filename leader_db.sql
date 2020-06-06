@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3307
--- Время создания: Июн 06 2020 г., 18:27
+-- Время создания: Июн 06 2020 г., 19:17
 -- Версия сервера: 10.3.13-MariaDB-log
 -- Версия PHP: 7.1.32
 
@@ -67,10 +67,26 @@ INSERT INTO `poll` (`IDPoll`, `Thema`, `Name`, `Comment`, `Photo`, `Q1`, `Q2`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `problem`
+-- Структура таблицы `problems`
 --
--- Структура чтения ошибок для таблицы leader_db.problem: #1932 - Table 'leader_db.problem' doesn't exist in engine
--- Ошибка считывания данных таблицы leader_db.problem: #1064 - У вас ошибка в запросе. Изучите документацию по используемой версии MariaDB на предмет корректного синтаксиса около 'FROM `leader_db`.`problem`' на строке 1
+
+CREATE TABLE `problems` (
+  `IDProblem` int(11) NOT NULL,
+  `IDUser` int(11) NOT NULL,
+  `Nameproblem` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Description` varchar(10000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Status` int(11) NOT NULL,
+  `Rating` int(11) NOT NULL,
+  `Level` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `problems`
+--
+
+INSERT INTO `problems` (`IDProblem`, `IDUser`, `Nameproblem`, `Description`, `Photo`, `Status`, `Rating`, `Level`) VALUES
+(1, 7, 'Транспортная реформа не смогла победить простои транспорта на остановках', 'Транспортная реформа не смогла победить простои транспорта на остановках. Пока власти устраивают проверки на некоторых маршрутах (дело хорошее, особенно если эти проверки неожиданные для перевозчиков), мы провели свою. Вывод — простои (явление, когда транспорт стоит на крупной остановке, «собирая» пассажиров) остались.', '\\images\\shop-item\\s8.jpg', 1, 4, 'Город');
 
 -- --------------------------------------------------------
 
@@ -121,6 +137,12 @@ ALTER TABLE `poll`
   ADD PRIMARY KEY (`IDPoll`);
 
 --
+-- Индексы таблицы `problems`
+--
+ALTER TABLE `problems`
+  ADD PRIMARY KEY (`IDProblem`);
+
+--
 -- Индексы таблицы `user`
 --
 ALTER TABLE `user`
@@ -135,6 +157,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `poll`
   MODIFY `IDPoll` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT для таблицы `problems`
+--
+ALTER TABLE `problems`
+  MODIFY `IDProblem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `user`

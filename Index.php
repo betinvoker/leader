@@ -41,10 +41,10 @@ include('NavGuest.php');
 			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">		
 			<?php
 				include("db.php");
-				$sql=mysqli_query($db,"SELECT * FROM user INNER JOIN problem ON user.IDUser=problem.IDUser WHERE problem.Status=1 ORDER BY IDProblem DESC limit 4");
+				$sql=mysqli_query($db,"SELECT * FROM user INNER JOIN problems ON user.IDUser=problems.IDUser WHERE problems.Status=1 ORDER BY IDProblem DESC limit 4");
 					//вывод строк из массива $data в таблицу
 					while ($result=mysqli_fetch_array($sql)){
-						echo'	<div class="col mb-3">
+						echo'	<div class=col mb-3">
 						<div >
 							<img src="'.$result['Photo'].'" formaction="" class="card-img-top item-img" alt="...">
 							<div class="card-body">';

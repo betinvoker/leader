@@ -55,11 +55,9 @@ include('Nav.php');
 					<div class="card-deck">
 						<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
 					<?php
-    
+						include("db.php");
 					//Таблица с мероприятиями
-					
-					$sql=mysqli_query($db,"SELECT * FROM problem WHERE IDUser=$IDUser");
-					//вывод строк из массива $data в таблицу
+						$sql=mysqli_query($db,"SELECT * FROM problems WHERE IDUser=$IDUser");					//вывод строк из массива $data в таблицу
 						while ($result=mysqli_fetch_array($sql)){
 						echo	"<div class='card'>";
 						echo		"<img src='".$result['Photo']."' class='card-img-top'>";
