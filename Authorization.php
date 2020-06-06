@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,7 +34,7 @@
 						</div>
                     </div>
                              
-                    <input type="submit" class="btn btn-outline-success btn-block" value="Вход" name="submit" formaction="personal_area.html">
+                    <input type="submit" class="btn btn-outline-success btn-block" value="Вход" name="submit" formaction='login.php'>
                 </div>
             </div>
         </form>

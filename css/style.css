@@ -60,6 +60,11 @@ a:hover {
   margin-top: 40px;
 }
 
+.rightimg  {
+  float: right; /* Выравнивание по правому краю  */ 
+  margin: 7px 0 7px 7px; /* Отступы вокруг картинки */
+}
+
 @media (max-width: 767px) {
   .poster-fix-size { 
     height: 230px; 

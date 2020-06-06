@@ -1,59 +1,6 @@
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<link rel="shortcut icon" href="images/gerb-icon.ico" type="image/x-icon">
-
-	<link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-	
-	<title>Информационная система по выявлению лидеров общественного мнения</title>
- </head>
- <body>
- <header>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-		<a class="navbar-brand" href="index.html">
-			<img src="images/gerb-logo.png" alt="Информационная система по выявлению лидеров общественного мнения">
-		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="actual_problems.html">Актуальные проблемы</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Голосования</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="discussion.html">Общественные обсуждения</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Результаты</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Проект в лицах</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Итоги 2019</a>
-				</li>
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<a href="registration.html" style="padding-right:10pt">
-					<img src="icons/receipt-cutoff.svg" alt="" width="20" height="20" title="Bootstrap">
-					<font style="vertical-align: inherit;">Регистрация</font>
-				</a>
-				<a href="authorization.html">
-					<img src="icons/person.svg" alt="" width="23" height="23" title="Bootstrap">
-					<font style="vertical-align: inherit;">Личный кабинет</font>
-				</a>
-			</form>
-		</div>
-	</nav>
-</header>
+<?php
+include('NavGuest.php');
+?>
 
 <div class="container-fluid" style="margin-top: 90px;">
 	<div class="card text-dark">
@@ -91,52 +38,38 @@
 			<h3>Голосования</h3>
 		</div>
 		<div class="card-body">
-			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-				<div class="col mb-3">
-					<a href="#">
-						<div class="card card-fix-size border-0">
-							<img src="images/q1.jpg" class="card-img-top item-img" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Викторина "Электронные проекты"</h5>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col mb-3">
-					<a href="#">
-						<div class="card card-fix-size border-0">
-							<img src="images/q2.jpg" class="card-img-top item-img" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Акция "День гида"</h5>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col mb-3">
-					<a href="#">
-						<div class="card card-fix-size border-0">
-							<img src="images/q3.jpg" class="card-img-top item-img" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Благоустройство города</h5>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col mb-3">
-					<a href="#">
-						<div class="card card-fix-size border-0">
-							<img src="images/q4.jpg" class="card-img-top item-img" alt="...">
-							<div class="card-body">
-								<h5 class="card-title">Как проводим ЧМ по пляжному футболу?</h5>
-							</div>
-						</div>
-					</a>
-				</div>
-			</div>
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">		
+			<?php
+				include("db.php");
+				$sql=mysqli_query($db,"SELECT * FROM user INNER JOIN problem ON user.IDUser=problem.IDUser WHERE problem.Status=1 ORDER BY IDProblem DESC limit 4");
+					//вывод строк из массива $data в таблицу
+					while ($result=mysqli_fetch_array($sql)){
+						echo'	<div class="col mb-3">
+						<div >
+							<img src="'.$result['Photo'].'" formaction="" class="card-img-top item-img" alt="...">
+							<div class="card-body">';
+								
+								echo "<form  method='POST'>";
+								echo '<h5 class="card-title">'.mb_strimwidth($result['Nameproblem'], 0, 63, "...").'</h5>';
+								echo "<p class='card-text'>".mb_strimwidth($result['Description'], 0, 175, "...")."</p>";
+								echo "<input type='hidden' name='hidden' value='".$result['IDProblem']."'>";
+								echo "<input type='hidden' name='hidden2' value='".$result['Username']."'>";
+								echo "<td><button type='submit' style='position: static; bottom: 0px;'class='btn btn-outline-secondary btn-block btn-block' formaction='ActualProblemsItem.php'  style='position: absolute; right: -5px; top: -15px;'>Подробнее</button></td>";
+								echo "</form>";
+				
+						echo '</div>
+					</div>
+				</div>';
+			
+}
+	echo 	'</div>
 			<a type="button" class="btn btn-outline-secondary btn-lg btn-block border-button">Все голосования</a>
 		</div>
 	</div>
-</div>
+</div>';
+?>
+
+
 
 <div class="container-fluid border-block">
 	<div class="card border-0">
@@ -145,71 +78,26 @@
 		</div>
 		<div class="card-body">
 			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
-				<div class="col mb-2">
-					<a href="#">
-						<div class="card border-0">
-							<center>
-								<img src="images/q5.jpg" class="rounded-circle img-lider-opinion" alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Фамилия Имя лидиера №1</h5>
-									<span class="badge badge-pill badge-info">25 голосов</span>
-								</div>
-							</center>
-						</div>
-					</a>
-				</div>
-				<div class="col mb-2">
-					<a href="#">
-						<div class="card border-0">
-							<center>
-								<img src="images/q6.jpg" class="rounded-circle img-lider-opinion" alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Фамилия Имя лидиера №2</h5>
-									<span class="badge badge-pill badge-info">64 голосов</span>
-								</div>
-							</center>
-						</div>
-					</a>
-				</div>
-				<div class="col mb-2">
-					<a href="#">
-						<div class="card border-0">
-							<center>
-								<img src="images/q7.jpg" class="rounded-circle img-lider-opinion" alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Фамилия Имя лидиера №3</h5>
-									<span class="badge badge-pill badge-info">2 голосов</span>
-								</div>
-							</center>
-						</div>
-					</a>
-				</div>
-				<div class="col mb-2">
-					<a href="#">
-						<div class="card border-0">
-							<center>
-								<img src="images/q8.jpg" class="rounded-circle img-lider-opinion" alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Фамилия Имя лидиера №4</h5>
-									<span class="badge badge-pill badge-info">137 голосов</span>
-								</div>
-							</center>
-						</div>
-					</a>
-				</div>
-				<div class="col mb-2">
-					<a href="#">
-						<div class="card border-0">
-							<center>
-								<img src="images/q9.jpg" class="rounded-circle img-lider-opinion" alt="...">
-								<div class="card-body">
-									<h5 class="card-title">Фамилия Имя лидиера №5</h5>
-									<span class="badge badge-pill badge-info">256 голосов</span>
-								</div>
-							</center>
-						</div>
-					</a>
-				</div>
+				<?php 
+				include("db.php");
+				$sql=mysqli_query($db,"SELECT * FROM user WHERE Reiting > 0");
+				//вывод строк из массива $data в таблицу
+				while ($result=mysqli_fetch_array($sql)){
+				echo"<div class='col mb-2'>";
+				echo	"<a href='PersonalAccount.php'>";
+				echo		"<div class='card border-0'>";
+				echo			"<center>";
+				echo				"<img src='".$result['Photo']."' class='rounded-circle img-lider-opinion'>";
+				echo				"<div class='card-body'>";
+				echo					"<h5 class='card-title'>".$result['Lastname'].' '.$result['Firstname'].' '.$result['Fathername']."</h5>";
+				echo					"<span class='badge badge-pill badge-info'>".$result['Reiting']." голосов</span>";
+				echo				"</div>";
+				echo			"</center>";
+				echo		"</div>";
+				echo	"</a>";
+				echo "</div>";
+				}
+				?>
 			</div>
 			<a type="button" class="btn btn-outline-secondary btn-lg btn-block border-button">Все лидеры</a>
 		</div>

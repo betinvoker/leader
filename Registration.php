@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -54,7 +55,7 @@
 								<input type="tel" class="form-control form-control-md" placeholder="Телефон" name="tel">
 							</div>  
                  
-							<input type="submit" class="btn btn-outline-success btn-block" value="Отправить" name="submit" formaction=''>
+							<input type="submit" class="btn btn-outline-success btn-block" value="Отправить" name="submit" formaction='NewUser.php'>
 						</div>
 					</div>
 				</form>
