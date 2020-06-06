@@ -13,7 +13,7 @@ include('Nav_manager.php');
 						echo "
 						<thead clasinfo'><tr ><th>ID проблемы</th><th>Тема проблемы</th><th>Описание</th>".
 						"<th> Статус</th><th>Рейтинг</th><th>Уровень</th><th>Подтвердить</th><th>Отклонить</th></tr></thead><tbody>";
-						$sql=mysqli_query($db,"SELECT * FROM problem INNER JOIN user ON problem.IDUser=user.IDUser WHERE problem.Status=0");
+						$sql=mysqli_query($db,"SELECT * FROM problems INNER JOIN user ON problems.IDUser=user.IDUser WHERE problems.Status=0");
 
 						//вывод строк из массива $data в таблицу
 						while ($result=mysqli_fetch_array($sql)){

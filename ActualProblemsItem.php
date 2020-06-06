@@ -14,7 +14,7 @@ include('NavGuest.php');
 //Таблица с мероприятиями
 $IDProblem = $_POST['hidden'];
 include('db.php');
-$sql=mysqli_query($db,"SELECT * FROM problem WHERE IDProblem=$IDProblem");
+$sql=mysqli_query($db,"SELECT * FROM problems WHERE IDProblem=$IDProblem");
 //вывод строк из массива $data в таблицу
 $result= mysqli_fetch_array($sql);
 ?>
