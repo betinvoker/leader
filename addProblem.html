@@ -1,0 +1,120 @@
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="shortcut icon" href="images/gerb-icon.ico" type="image/x-icon">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style-actual-problems.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+	
+	<title>Актуальные проблемы</title>
+ </head>
+ <body>
+ <header>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<a class="navbar-brand" href="index.php">
+			<img src="images/gerb-logo.png" alt="Информационная система по выявлению лидеров общественного мнения">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="actual_problems.html">Проблемы</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Голосования</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="discussion.html">Общественные обсуждения</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Результаты</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Проект в лицах</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Итоги 2019</a>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<a href="Registration.php" style="padding-right:10pt">
+					<img src="icons/receipt-cutoff.svg" alt="" width="20" height="20" title="Bootstrap">
+					<font style="vertical-align: inherit;">Регистрация</font>
+				</a>
+				<a href="Authorization.php">
+					<img src="icons/person.svg" alt="" width="23" height="23" title="Bootstrap">
+					<font style="vertical-align: inherit;">Личный кабинет</font>
+				</a>
+			</form>
+		</div>
+	</nav>
+</header>
+<body>
+<div style="margin-top: 100px;"><center><h1>Новая проблема</h1></center></div>
+
+<div class="container" style="margin-bottom: 320px;">
+	<div class="row">
+		<div class="card-body">
+			<form  method="POST" >
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="form-group" style="margin-bottom: 80px;">
+							<div class="form-group">
+								<label for="login">Заголовок проблемы</label>
+								<input type="text" class="form-control form-control-md" placeholder="Заголовок проблемы" name="login">
+							</div>
+							<div class="form-group">
+								<label for="login">Описание</label>
+								<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+							</div>
+							<div class="form-group">
+								<label for="login">Фотография</label>
+								<input type="file" class="form-control form-control-md" placeholder="Фотография" name="login">
+							</div>
+							<div class="form-group">
+								<label for="login">Уровень проблемы</label>
+								<select class="form-control">
+									<option>Район</option>
+									<option>Город</option>
+									<option>Регион</option>
+								</select>
+							</div>
+						</div>
+                             
+						<input type="submit" class="btn btn-outline-success btn-block" value="Добавить" name="submit" formaction='login.php'>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<footer class="footer-margin">
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+		<div class="row">
+			<div class="col align-self-end">
+				<a class="p-2 text-white" href="#"><font style="vertical-align: inherit;">
+					<font style="vertical-align: inherit;">О проекте</font></font>
+				</a>
+				<a class="p-2 text-white" href="#"><font style="vertical-align: inherit;">
+					<font style="vertical-align: inherit;">Обратная связь</font></font>
+				</a>
+				<a class="p-2 text-white" href="#"><font style="vertical-align: inherit;">
+					<font style="vertical-align: inherit;">Часто задаваемые вопросы</font></font>
+				</a>
+			</div>
+		</div>
+	</nav>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

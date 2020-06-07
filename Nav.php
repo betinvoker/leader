@@ -30,7 +30,6 @@ $Golos=$myrow['CountGolos'];
 	<a class="navbar-brand" href="#">
 		<img src="images/gerb-logo.png" alt="Информационная система по выявлению лидеров общественного мнения">
     </a>
-    <?php echo $Username."   ".$Reiting." баллов              ";?>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
@@ -59,11 +58,11 @@ $Golos=$myrow['CountGolos'];
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
 			<a href="PersonalAccount.php" style="padding-right:10pt">
-				<img src="icons/person-square.svg" alt="" width="20" height="20" style="margin-bottom: 3px;" title="Bootstrap">
-				<label class="form-check-label" for="exampleCheck1">Личный кабинет</label>
+				<img src="icons/person-square.svg" alt="" width="20" height="20" style="margin-bottom: 3px;">
+				<label class="form-check-label" for="exampleCheck1"><?php echo $myrow['Lastname']." ".$myrow['Firstname'];?></label>
 			</a>
 			<a href="index.php">
-				<img src="icons/x-octagon.svg" alt="" width="20" height="20" style="margin-bottom: 3px;" title="Bootstrap">
+				<img src="icons/x-octagon.svg" alt="" width="20" height="20" style="margin-bottom: 3px;">
 				<label class="form-check-label" for="exampleCheck1">Выход</label>
 			</a>
 		</form>

@@ -1,5 +1,4 @@
 <?php
-   
     $login=$_POST['user_name'];
     $pas=$_POST['p1'];
     $lastname=$_POST['lastname'];
@@ -33,5 +32,4 @@
 else {
     echo "Ошибка регистрации";
 }
-
 ?>

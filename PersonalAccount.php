@@ -48,7 +48,7 @@ include('Nav.php');
 						<div class="col col-sm-12 col-md-4" style="margin-top: 10px">
 							<form  method="POST">
 								<input type="hidden" name="hidden" value="<? echo $myrow['IDUser'] ?>">
-								<button type='submit' class='btn btn-success' formaction='Addproblem.php'>Предложить проблему</button>
+								<button type='submit' class='btn btn-success' formaction='addProblem.html'>Предложить проблему</button>
 							</form>
 						</div>
 					</div>
@@ -66,7 +66,7 @@ include('Nav.php');
 						echo			"<p class='card-text'>".mb_strimwidth($result['Description'], 0, 100, "...")."</p>";
 						echo 			"<form  action='ActualProblemsItem.php' method='POST'>";
 						echo 				"<input type='hidden' name='hidden' value='".$result['IDProblem']."'>";
-						echo 				"<button type='submit' class='btn btn-outline-info btn-sm btn-block' formaction='ActualProblemsItem.php' >Подробнее</button>";
+						echo 				"<button type='submit' class='btn btn-outline-info btn-sm btn-block' formaction='ActualProblemsItem.php'>Подробнее</button>";
 						echo 			"</form>";
 						echo		"</div>";
 						echo		"<div class='card-footer'>";
@@ -77,7 +77,7 @@ include('Nav.php');
 							else	{	$status="Закончен";	} 
 							
 						echo			"<small class='text-muted'>Статус проблемы: ".$status."</small>";
-						echo			" <p class='card-text'><small class='text-muted'>Рейтинг: ".$result['Rating']."</small></p>";
+						echo			"<p class='card-text'><small class='text-muted'>Рейтинг: ".$result['Rating']."</small></p>";
 						echo		"</div>";
 						echo	"</div>";
 						}
@@ -86,7 +86,47 @@ include('Nav.php');
 						</div>
 					</div>
 				</div>
-				<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Мои решения</div>
+				<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+					<div class= "row row-cols-1 row-cols-sm-2" style="margin: 20px 0 20px 0">
+						<div class="col col-sm-12 col-md-8">
+							<h1>Мои решения</h1>
+						</div>
+					</div>
+					<div class="card-deck">
+						<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+							<div class="card">
+								<img src="images\shop-item\s6.jpg" class="card-img-top">
+								<div class="card-body">
+									<h5 class="card-title">Решение проблемы</h5>
+									<small class="text-muted">Статус проблемы: Решена</small>
+									<p class="card-text"><small class="text-muted">Рейтинг: 12</small></p>
+									<p class="card-text">Решение проблемыРешение проблемыРешение проблемыРешение проблемыРешение проблемы</p>
+									<button type="submit" class="btn btn-outline-info btn-sm btn-block" formaction="ActualProblemsItem.php">Подробнее</button>
+								</div>
+							</div>
+							<div class="card">
+								<img src="images\shop-item\s4.jpg" class="card-img-top">
+								<div class="card-body">
+									<h5 class="card-title">Решение проблемы</h5>
+									<small class="text-muted">Статус проблемы: Решена</small>
+									<p class="card-text"><small class="text-muted">Рейтинг: 12</small></p>
+									<p class="card-text">Решение проблемыРешение проблемыРешение проблемыРешение проблемыРешение проблемы</p>
+									<button type="submit" class="btn btn-outline-info btn-sm btn-block" formaction="ActualProblemsItem.php">Подробнее</button>
+								</div>
+							</div>
+							<div class="card">
+								<img src="images\shop-item\s3.jpg" class="card-img-top">
+								<div class="card-body">
+									<h5 class="card-title">Решение проблемы</h5>
+									<small class="text-muted">Статус проблемы: В рассмотрении</small>
+									<p class="card-text"><small class="text-muted">Рейтинг: 12</small></p>
+									<p class="card-text">Решение проблемыРешение проблемыРешение проблемыРешение проблемыРешение проблемы</p>
+									<button type="submit" class="btn btn-outline-info btn-sm btn-block" formaction="ActualProblemsItem.php">Подробнее</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 					<div class= "row row-cols-1 row-cols-sm-2" style="margin: 20px 0 10px 0">
 						<div class="col col-sm-12">
@@ -197,7 +237,7 @@ include('Nav.php');
 						echo "<form  method='POST'>";
 						echo "<input type='hidden' name='hidden' value='".$result['IDPoll']."'>";
 						echo "<td><button type='submit' class='btn btn-success' formaction='Poll.php' >Обзор</button></td>";
-						echo "<td><button type='submit' class='btn btn-success' formaction='del_meropr.php'>Закончить</button></td>";
+						echo "<td><button type='submit' class='btn btn-success' formaction='#'>Закончить</button></td>";
 
 						echo "</form>";
 						echo "</tr>";

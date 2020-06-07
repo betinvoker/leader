@@ -19,11 +19,8 @@ $IDUser=$_SESSION['IDUserM'];
 <body>
  <?php
 include('db.php');
-
-
 ?>
 
-<!-- nav section -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 	<a class="navbar-brand" href="index.php">
 		<img src="images/gerb-logo.png" alt="Информационная система по выявлению лидеров общественного мнения">
@@ -67,7 +64,6 @@ include('db.php');
 	<div class="header">
 		<div class="container-fluid"> 
 			<div class="row">
-				<?php	echo "Добро пожаловать, ".$Username." ID=".$IDUser;	?>
 			</div>
 		</div>
 	</div>

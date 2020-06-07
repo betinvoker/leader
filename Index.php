@@ -9,19 +9,19 @@ include('NavGuest.php');
 			<div class="row">
 				<div class="col-sm">
 					<blockquote class="blockquote text-center">
-						<h1 class="mb-0 display-3">XXX XXX XXX</h1>
+						<h1 class="mb-0 display-3">91 017 954</h1>
 						<footer class="blockquote-footer"><cite title="активных граждан">активных граждан</cite></footer>
 					</blockquote>
 				</div>
 				<div class="col-sm">
 					<blockquote class="blockquote text-center">
-						<h1 class="mb-0 display-3">XXX XXX</h1>
+						<h1 class="mb-0 display-3">12 406</h1>
 						<footer class="blockquote-footer"><cite title="прошло голосований">прошло голосований</cite></footer>
 					</blockquote>
 				</div>
 				<div class="col-sm">
 					<blockquote class="blockquote text-center">
-						<h1 class="mb-0 display-3">XXX XXX XXX</h1>
+						<h1 class="mb-0 display-3">405 037 125</h1>
 						<footer class="blockquote-footer"><cite title="принято мнений">принято мнений</cite></footer>
 					</blockquote>
 				</div>
@@ -35,7 +35,7 @@ include('NavGuest.php');
 <div class="container-fluid border-block">
 	<div class="card border-0">
 		<div class="card-header border-0">
-			<h3>Голосования</h3>
+			<h3>Важные проблемы</h3>
 		</div>
 		<div class="card-body">
 			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">		
@@ -49,6 +49,7 @@ include('NavGuest.php');
 							<img src="'.$result['Photo'].'" formaction="" class="card-img-top item-img" alt="...">
 							<div class="card-body">';
 								
+								echo "<p class='badge badge-pill badge-info' style='position: absolute; top: 15px; right: 30px; font-size: 12pt;'>Заинтересованность: ".$result['Rating']."</p>";
 								echo "<form  method='POST'>";
 								echo '<h5 class="card-title">'.mb_strimwidth($result['Nameproblem'], 0, 63, "...").'</h5>';
 								echo "<p class='card-text'>".mb_strimwidth($result['Description'], 0, 175, "...")."</p>";
@@ -63,7 +64,7 @@ include('NavGuest.php');
 			
 }
 	echo 	'</div>
-			<a type="button" class="btn btn-outline-secondary btn-lg btn-block border-button">Все голосования</a>
+			<a type="button" href="actual_problems.html" class="btn btn-outline-secondary btn-lg btn-block border-button">Все проблемы</a>
 		</div>
 	</div>
 </div>';
@@ -79,7 +80,6 @@ include('NavGuest.php');
 		<div class="card-body">
 			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
 				<?php 
-				include("db.php");
 				$sql=mysqli_query($db,"SELECT * FROM user WHERE Reiting > 0");
 				//вывод строк из массива $data в таблицу
 				while ($result=mysqli_fetch_array($sql)){
@@ -107,55 +107,24 @@ include('NavGuest.php');
 <div class="container-fluid border-block">
 	<div class="card border-0">
 		<div class="card-header border-0">
-			<h3>Как мы изменили город</h3>
+			<h3>Опросы</h3>
 		</div>
 		<div class="card-body">
 			<div class="row row-cols-1 row-cols-sm-3 row-cols-md-5">
-				<div class="card mb-3">
-					<a href="#">
-						<div class="card-header">Строительство</div>
-						<div class="card-body text-secondary">
-							<h5 class="card-title">Общегородской</h5>
-							<p class="card-text">Строящийся южный дублер Кутузовского проспекта назвали в честь героя Отечественной войны 1812...</p>
-						</div>
-					</a>
-				</div>
-				<div class="card mb-3">
-					<a href="#">
-						<div class="card-header">Торговля и услуги</div>
-						<div class="card-body text-secondary">
-							<h5 class="card-title">Общегородской</h5>
-							<p class="card-text">В ноябре 2019 года в районе Арбат по адресу: Большой Николопесковский переулок, владение 8...</p>
-						</div>
-					</a>
-				</div>
-				<div class="card mb-3">
-					<a href="#">
-						<div class="card-header">Транспорт</div>
-						<div class="card-body text-secondary">
-							<h5 class="card-title">Общегородской</h5>
-							<p class="card-text">В ноябре 2019 года открылось движение по двум Московским центральным диаметрам: МЦД-1...</p>
-						</div>
-					</a>
-				</div>
-				<div class="card mb-3">
-					<a href="#">
-						<div class="card-header">Благоустройство</div>
-						<div class="card-body text-secondary">
-							<h5 class="card-title">ЮВАО</h5>
-							<p class="card-text">Принято решение о благоустройстве спортивной площадки по адресу: Нахимовский проспект...</p>
-						</div>
-					</a>
-				</div>
-				<div class="card mb-3">
-					<a href="#">
-						<div class="card-header">Благоустройство</div>
-						<div class="card-body text-secondary">
-							<h5 class="card-title">ЮВАО</h5>
-							<p class="card-text">Принято решение о благоустройстве детско-спортивной площадки по адресу: ул. Ташкентская...</p>
-						</div>
-					</a>
-				</div>
+				<?php
+				$sql=mysqli_query($db,"SELECT * FROM poll ORDER BY IDPoll DESC limit 5");
+				while ($result=mysqli_fetch_array($sql)){
+				echo"<div class='card mb-3'>";
+				echo	"<a href='#'>";
+				echo		"<div class='card-header'>".$result['Thema']."</div>";
+				echo		"<div class='card-body text-secondary'>";
+				echo			"<h5 class='card-title'>Общегородской</h5>";
+				echo			"<p class='card-text'>Строящийся южный дублер Кутузовского проспекта назвали в честь героя Отечественной войны 1812...</p>";
+				echo		"</div>";
+				echo	"</a>";
+				echo"</div>";
+				}
+				?>
 			</div>
 			<a type="button" class="btn btn-outline-secondary btn-lg btn-block border-button">Все результаты</a>
 		</div>

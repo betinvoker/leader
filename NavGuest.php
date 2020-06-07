@@ -23,6 +23,9 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
+					<a class="nav-link" href="actual_problems.html">Проблемы</a>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link" href="#">Голосования</a>
 				</li>
 				<li class="nav-item">
@@ -30,9 +33,6 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Результаты</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Магазин поощрений</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Проект в лицах</a>
